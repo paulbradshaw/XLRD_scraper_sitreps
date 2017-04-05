@@ -72,9 +72,9 @@ for sheetnum in sheetsrange:
         scraperwiki.sqlite.save(["id"], record, table_name=sheetnum)
         #some cells don't have a number, but a dash
         #they generate the error: (exceptions.ValueError) could not convert string to float
-        else:
-            print "EMPTY ROW?"
-        try:
-            scraperwiki.sqlite.save(["id"], record, table_name=sheetnum)
-        except:
-            print "BLANK ROW?"
+        #else:
+         #   print "EMPTY ROW?"
+        #try:
+         #   scraperwiki.sqlite.save(["id"], record, table_name=sheetnum)
+        #except:
+         #   print "BLANK ROW?"
