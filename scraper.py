@@ -60,9 +60,9 @@ for sheetnum in sheetsrange:
         record['SHA'] = sheet.row_values(rownumber)[1]
         record['Code'] = sheet.row_values(rownumber)[2]
         record['Name'] = sheet.row_values(rownumber)[3]
-        record['date1'] = str(sheet.row_values(rownumber)[4])
-        record['date2'] = str(sheet.row_values(rownumber)[5])
-        record['date3'] = str(sheet.row_values(rownumber)[6])
+        record['date1'] = sheet.row_values(rownumber)[4]
+        #record['date2'] = str(sheet.row_values(rownumber)[5])
+        #record['date3'] = str(sheet.row_values(rownumber)[6])
         record['title'] = title[2]
         id = id+1
         record['id'] = id
