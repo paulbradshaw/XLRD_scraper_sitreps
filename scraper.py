@@ -66,7 +66,7 @@ for sheetnum in sheetsrange:
         #record['title'] = title[2]
         id+=1
         idstr = "TEST"+str(id)
-        record['id'] = str(id).decode('utf-8')
+        record['id'] = id.decode('utf-8')
         print "---", record
         #if sheet.row_values(rownumber)[3] != '':
         sheetnumstr = str(sheetnum)
