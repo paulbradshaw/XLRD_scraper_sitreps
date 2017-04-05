@@ -36,7 +36,6 @@ id = 0
 #now to loop through the 'sheetsrange' variable (a list) and put each item in 'sheetnum'
 for sheetnum in sheetsrange:
     print "scraping sheet ", sheetnum
-    sheetnum = str(sheetnum)
     #use the sheet_by_index method to open the first (0) sheet in variable 'book' - and put it into new variable 'sheet'
     sheet = book.sheet_by_index(sheetnum)
     #use the row_values method and index (1) to grab the second row of 'sheet'
@@ -70,6 +69,7 @@ for sheetnum in sheetsrange:
         record['id'] = "TEST"
         print "---", record
         #if sheet.row_values(rownumber)[3] != '':
+        sheetnum = str(sheetnum)
         scraperwiki.sqlite.save(["id"], record, table_name=sheetnum)
         #some cells don't have a number, but a dash
         #they generate the error: (exceptions.ValueError) could not convert string to float
