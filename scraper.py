@@ -70,4 +70,4 @@ for sheetnum in sheetsrange:
         id+=1
         record['id'] = id
         print "---", record
-        scraperwiki.sqlite.save(['Name'], record, table_name=sheetname) 
+        scraperwiki.sqlite.save(['id'], record, table_name=sheetname) 
