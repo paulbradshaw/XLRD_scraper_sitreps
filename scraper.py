@@ -70,8 +70,4 @@ for sheetnum in sheetsrange:
         id+=1
         record['id'] = id
         print "---", record
-        if sheet.row_values(rownumber)[3] != '':
-            #sheetnumstr = "sheet "+sheetnum
-            scraperwiki.sqlite.save(['Name'], record, table_name=sheetname) 
-        else:
-            print "EMPTY ROW?"
+        scraperwiki.sqlite.save(['Name'], record, table_name=sheetname) 
