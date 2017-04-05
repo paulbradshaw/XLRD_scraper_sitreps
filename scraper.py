@@ -64,7 +64,7 @@ for sheetnum in sheetsrange:
         #record['date2'] = str(sheet.row_values(rownumber)[5])
         #record['date3'] = str(sheet.row_values(rownumber)[6])
         #record['title'] = title[2]
-        id = id+1
+        id+=1
         idstr = "TEST"+str(id)
         record['id'] = id
         print "---", record
