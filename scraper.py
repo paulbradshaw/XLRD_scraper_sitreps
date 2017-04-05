@@ -34,7 +34,7 @@ print "sheetsrange:", sheetsrange
 #create a new variable, 'id', set at 0. We'll add one to this every time a loop runs, so we have a unique id for every row of data
 id = 0
 #now to loop through the 'sheetsrange' variable (a list) and put each item in 'sheetnum'
-for sheetnum in sheetsrange[0:1]:
+for sheetnum in sheetsrange:
     print "scraping sheet ", sheetnum
     #use the sheet_by_index method to open the first (0) sheet in variable 'book' - and put it into new variable 'sheet'
     sheet = book.sheet_by_index(sheetnum)
@@ -61,21 +61,17 @@ for sheetnum in sheetsrange[0:1]:
         record['Code'] = sheet.row_values(rownumber)[2]
         record['Name'] = sheet.row_values(rownumber)[3]
         record['date1'] = sheet.row_values(rownumber)[4]
+        #some cells don't have a number, but a dash
+        #they generate the error: (exceptions.ValueError) could not convert string to float
+        #so we convert these into strings - they can always be converted back later
         record['date2'] = str(sheet.row_values(rownumber)[5])
         record['date3'] = str(sheet.row_values(rownumber)[6])
         record['title'] = title[2]
         id+=1
-        idstr = "TEST"+str(id)
         record['id'] = id
         print "---", record
         if sheet.row_values(rownumber)[3] != '':
             #sheetnumstr = "sheet "+sheetnum
-            scraperwiki.sqlite.save(['Name'], record, table_name=sheetname) #, table_name=sheetnum
-        #some cells don't have a number, but a dash
-        #they generate the error: (exceptions.ValueError) could not convert string to float
-        #else:
-         #   print "EMPTY ROW?"
-        #try:
-         #   scraperwiki.sqlite.save(["id"], record, table_name=sheetnum)
-        #except:
-         #   print "BLANK ROW?"
+            scraperwiki.sqlite.save(['Name'], record, table_name=sheetname) 
+        else:
+            print "EMPTY ROW?"
