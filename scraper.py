@@ -65,8 +65,8 @@ for sheetnum in sheetsrange:
         #record['date3'] = str(sheet.row_values(rownumber)[6])
         #record['title'] = title[2]
         id = id+1
-        id = "TEST"
-        #record['id'] = id
+        idstr = "TEST"+str(id)
+        record['id'] = id
         print "---", record
         if sheet.row_values(rownumber)[3] != '':
             scraperwiki.sqlite.save(["id"], record, table_name=sheetnum)
