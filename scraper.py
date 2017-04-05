@@ -69,8 +69,8 @@ for sheetnum in sheetsrange[0:1]:
         record['id'] = id
         print "---", record
         if sheet.row_values(rownumber)[3] != '':
-            sheetnumstr = str(sheetnum)
-            scraperwiki.sqlite.save(['Name'], record, table_name=str(sheetnum)) #, table_name=sheetnum
+            sheetnumstr = "sheet "+sheetnum
+            scraperwiki.sqlite.save(['Name'], record, table_name=sheetnumstr) #, table_name=sheetnum
         #some cells don't have a number, but a dash
         #they generate the error: (exceptions.ValueError) could not convert string to float
         #else:
