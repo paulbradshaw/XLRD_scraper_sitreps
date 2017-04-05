@@ -36,6 +36,7 @@ id = 0
 #now to loop through the 'sheetsrange' variable (a list) and put each item in 'sheetnum'
 for sheetnum in sheetsrange:
     print "scraping sheet ", sheetnum
+    sheetnum = str(sheetnum)
     #use the sheet_by_index method to open the first (0) sheet in variable 'book' - and put it into new variable 'sheet'
     sheet = book.sheet_by_index(sheetnum)
     #use the row_values method and index (1) to grab the second row of 'sheet'
